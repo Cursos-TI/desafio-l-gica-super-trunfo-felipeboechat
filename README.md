@@ -82,20 +82,58 @@ wsl ./logicaSuperTrunfo
 
 ---
 
-## 🏅 Nível Mestre
+## 🏅 Nível Mestre - Comparação com Múltiplos Atributos
 
-No nível Mestre, o desafio se intensifica com a adição de funcionalidades avançadas, como menus dinâmicos e lógica de decisão complexa com operadores ternários.
+Este é o desafio final do Super Trunfo! Você integrará tudo o que aprendeu sobre estruturas de decisão em C para criar uma lógica de comparação ainda mais sofisticada.
 
-### 🆕 Diferença em relação ao Nível Aventureiro:
-- **Escolha de Dois Atributos:** O usuário poderá escolher dois atributos para comparação entre as cartas.
-- **Lógica de Decisão Complexa:** Implementação de estruturas de decisão aninhadas e encadeadas, além do uso de operadores ternários para determinar a carta vencedora.
-- **Menus Dinâmicos:** Os menus serão dinâmicos, permitindo uma navegação fluida entre as opções de comparação.
+### 🚩 O que você vai fazer
+- Permitir que o jogador escolha **dois atributos** para comparar as cartas, através de menus dinâmicos.
+- O sistema garantirá que o jogador não possa selecionar o mesmo atributo duas vezes.
+- Após comparar os dois atributos individualmente, o sistema **somará os valores** dos atributos para cada carta. A carta com a **maior soma** vence a rodada.
+- Implementar tratamento de empates.
+- Criar menus dinâmicos onde, após a escolha do primeiro atributo, ele não aparecerá como opção para o segundo.
+- Usar o **operador ternário** para tornar o código mais elegante na exibição dos resultados.
 
-### 🚩 Novas Funcionalidades:
-- **Comparação de Dois Atributos:** O sistema comparará dois atributos simultaneamente para determinar a carta vencedora.
-- **Lógica Avançada:** Uso de operadores ternários e lógica aninhada para lidar com comparações complexas.
-- **Empates:** O sistema será capaz de lidar com empates, exibindo mensagens apropriadas.
-- **Exibição de Resultados:** Exibição dos resultados das comparações de forma clara e interativa.
+### 📥 Exemplo de uso dos menus
+Primeira escolha:
+```
+=== MENU DE COMPARAÇÃO MÚLTIPLA ===
+Escolha o PRIMEIRO atributo para comparar:
+1. População
+2. Área
+3. PIB
+4. Pontos Turísticos
+5. Densidade Demográfica
+Digite sua escolha (1-5): 1
+```
+
+Segunda escolha (note que "População" não é mais uma opção):
+```
+Escolha o SEGUNDO atributo (diferente do primeiro):
+2. Área
+3. PIB
+4. Pontos Turísticos
+5. Densidade Demográfica
+Digite sua escolha: 3
+```
+
+### 📤 Exemplo de saída
+```
+=== RESULTADO DA COMPARAÇÃO ===
+Atributos escolhidos: População e PIB
+--------------------------------------------------------------
+CARTA 1 (R17 - Niteroi)
+ - População: 1234567.00
+ - PIB: 12345.00
+ - SOMA DOS ATRIBUTOS: 1246912.00
+
+CARTA 2 (S22 - Barueri)
+ - População: 123456.00
+ - PIB: 32156.00
+ - SOMA DOS ATRIBUTOS: 155612.00
+--------------------------------------------------------------
+RESULTADO FINAL: CARTA 1 (Niteroi) VENCEU com a maior soma!
+```
 
 ---
 

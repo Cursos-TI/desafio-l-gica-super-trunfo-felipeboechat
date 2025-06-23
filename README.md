@@ -24,18 +24,61 @@ No nível Novato, você começará implementando a lógica básica de comparaç�
 
 ---
 
-## 🏅 Nível Aventureiro
+## 🏅 Nível Aventureiro — Interatividade no Super Trunfo
 
-No nível Aventureiro, você expandirá o sistema para incluir a comparação aninhada e a criação de um menu interativo usando `switch`.
+Neste nível, o Super Trunfo fica mais interessante! Você implementará um menu interativo usando `switch` para que o jogador possa escolher o atributo de comparação entre duas cartas de cidades. Além disso, usará estruturas de decisão aninhadas (`if-else` dentro de `if-else`) para criar uma lógica de comparação mais complexa, considerando regras específicas para cada atributo.
 
-### 🆕 Diferença em relação ao Nível Novato:
-- **Menu Interativo:** O usuário poderá escolher diferentes atributos para comparação através de um menu.
-- **Comparação Aninhada:** Implementação de lógica de comparação mais complexa, utilizando estruturas aninhadas para tomar decisões baseadas em múltiplos atributos.
+### 🚩 O que você vai fazer
+- Implementar um menu interativo no terminal usando a estrutura `switch` que permita ao jogador escolher qual atributo será usado para comparar as cartas.
+- Implementar a lógica de comparação entre duas cartas com base no atributo selecionado pelo jogador. Os atributos disponíveis são:
+  - Nome da cidade (string — usado apenas para exibir informações)
+  - População (int)
+  - Área (float)
+  - PIB (float)
+  - Número de pontos turísticos (int)
+  - Densidade demográfica (float — já calculada no desafio anterior)
+- A regra geral é: vence a carta com o maior valor no atributo escolhido. Porém, para a Densidade Demográfica, vence a carta com o menor valor.
+- Exibir o resultado da comparação, incluindo:
+  - O nome das duas cidades
+  - O atributo usado na comparação
+  - Os valores do atributo para cada carta
+  - Qual carta venceu
+  - Em caso de empate, exibir a mensagem "Empate!"
 
-### 🚩 Novas Funcionalidades:
-- **Cadastro de Cartas:** Similar ao nível Novato, com a adição de comparação de múltiplos atributos.
-- **Menu Interativo:** Uso de `switch` para criar um menu que permite ao jogador escolher os atributos a serem comparados.
-- **Exibição de Resultados:** O sistema exibirá o resultado da comparação, indicando qual carta venceu e qual atributo foi utilizado.
+### 📥 Exemplo de uso do menu
+```
+=== MENU DE COMPARAÇÃO ===
+Escolha o atributo para comparar as cartas:
+1. População
+2. Área
+3. PIB
+4. Pontos Turísticos
+5. Densidade Demográfica
+Digite sua escolha (1-5): 2
+```
+
+### 📤 Exemplo de saída
+```
+=== RESULTADO DA COMPARAÇÃO ===
+Atributo escolhido: ÁREA
+- Carta 1 (A01): 432165.00 km²
+- Carta 2 (B25): 236547.00 km²
+Resultado: Carta 1 (Cidade X) venceu!
+```
+
+### 🛠️ Como compilar e executar
+
+No terminal (usando WSL):
+```sh
+wsl gcc -Wall -o logicaSuperTrunfo logicaSuperTrunfo.c
+wsl ./logicaSuperTrunfo
+```
+
+### 💡 Dicas
+- O menu e as mensagens exibidas no terminal devem ser intuitivos e fáceis de entender.
+- Use o `default` no `switch` para tratar opções inválidas.
+- O código deve ser limpo, organizado e bem comentado.
+- O cadastro das cartas pode ser reaproveitado do nível anterior.
 
 ---
 

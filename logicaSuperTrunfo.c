@@ -1,10 +1,10 @@
 /*
- * Desafio Super Trunfo - Nível Novato
- * Tema: Comparando Cartas do Super Trunfo
+ * Desafio Super Trunfo - Nível Aventureiro
+ * Tema: Interatividade no Super Trunfo
  * 
- * Este programa implementa a lógica básica de comparação entre duas cartas
- * do Super Trunfo, utilizando estruturas de decisão if e if-else.
- * O foco é comparar um atributo específico (População) para determinar a carta vencedora.
+ * Este programa implementa um menu interativo para comparação entre duas cartas
+ * do Super Trunfo, utilizando estruturas switch e decisões aninhadas.
+ * O usuário pode escolher qual atributo será usado na comparação.
  * 
  * Autor: Felipe Boechat
  */
@@ -39,8 +39,8 @@ int main() {
     float pibPerCapita2;    // PIB per capita (reais)
 
     // Mensagem de boas-vindas
-    printf("=== Super Trunfo - Nível Novato ===\n");
-    printf("Comparando Cartas do Super Trunfo\n\n");
+    printf("=== Super Trunfo - Nível Aventureiro ===\n");
+    printf("Interatividade no Super Trunfo\n\n");
 
     // --- CADASTRO DA CARTA 1 ---
     printf("Cadastro da Carta 1:\n");
@@ -177,24 +177,100 @@ int main() {
     printf("│ PIB per capita: R$ %.2f\n", pibPerCapita2);
     printf("└─────────────────────────────────────────────────────────────\n");
 
-    // --- COMPARAÇÃO DAS CARTAS (NÍVEL NOVATO) ---
-    // Neste nível, a comparação é feita com base em um atributo específico escolhido no código
-    // O atributo escolhido é: POPULAÇÃO
-    // Para população, a carta com o maior valor vence
-    printf("\n=== COMPARAÇÃO DE CARTAS (Atributo: População) ===\n");
-    printf("- Carta 1 - %s (%s): %d\n", nomeCidade1, codigo1, populacao1);
-    printf("- Carta 2 - %s (%s): %d\n", nomeCidade2, codigo2, populacao2);
+    // --- MENU INTERATIVO (NÍVEL AVENTUREIRO) ---
+    int escolha;
+    printf("\n=== MENU DE COMPARAÇÃO ===\n");
+    printf("Escolha o atributo para comparar as cartas:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Demográfica\n");
+    printf("Digite sua escolha (1-5): ");
+    scanf("%d", &escolha);
 
-    // Lógica de comparação usando estruturas if e if-else
-    if (populacao1 > populacao2) {
-        // Se a população da Carta 1 for maior que a da Carta 2
-        printf("- Resultado: Carta 1 (%s) venceu!\n", nomeCidade1);
-    } else if (populacao2 > populacao1) {
-        // Se a população da Carta 2 for maior que a da Carta 1
-        printf("- Resultado: Carta 2 (%s) venceu!\n", nomeCidade2);
-    } else {
-        // Se as populações forem iguais (empate)
-        printf("- Resultado: Empate!\n");
+    printf("\n=== RESULTADO DA COMPARAÇÃO ===\n");
+    
+    // Estrutura switch para processar a escolha do usuário
+    switch (escolha) {
+        case 1: // População
+            printf("Atributo escolhido: POPULAÇÃO\n");
+            printf("- Carta 1 (%s): %d habitantes\n", codigo1, populacao1);
+            printf("- Carta 2 (%s): %d habitantes\n", codigo2, populacao2);
+            
+            // Lógica de comparação aninhada para população
+            if (populacao1 > populacao2) {
+                printf("Resultado: Carta 1 (%s) venceu!\n", nomeCidade1);
+            } else if (populacao2 > populacao1) {
+                printf("Resultado: Carta 2 (%s) venceu!\n", nomeCidade2);
+            } else {
+                printf("Resultado: Empate!\n");
+            }
+            break;
+            
+        case 2: // Área
+            printf("Atributo escolhido: ÁREA\n");
+            printf("- Carta 1 (%s): %.2f km²\n", codigo1, area1);
+            printf("- Carta 2 (%s): %.2f km²\n", codigo2, area2);
+            
+            // Lógica de comparação aninhada para área
+            if (area1 > area2) {
+                printf("Resultado: Carta 1 (%s) venceu!\n", nomeCidade1);
+            } else if (area2 > area1) {
+                printf("Resultado: Carta 2 (%s) venceu!\n", nomeCidade2);
+            } else {
+                printf("Resultado: Empate!\n");
+            }
+            break;
+            
+        case 3: // PIB
+            printf("Atributo escolhido: PIB\n");
+            printf("- Carta 1 (%s): %.2f bilhões de reais\n", codigo1, pib1);
+            printf("- Carta 2 (%s): %.2f bilhões de reais\n", codigo2, pib2);
+            
+            // Lógica de comparação aninhada para PIB
+            if (pib1 > pib2) {
+                printf("Resultado: Carta 1 (%s) venceu!\n", nomeCidade1);
+            } else if (pib2 > pib1) {
+                printf("Resultado: Carta 2 (%s) venceu!\n", nomeCidade2);
+            } else {
+                printf("Resultado: Empate!\n");
+            }
+            break;
+            
+        case 4: // Pontos Turísticos
+            printf("Atributo escolhido: PONTOS TURÍSTICOS\n");
+            printf("- Carta 1 (%s): %d pontos\n", codigo1, pontosTuristicos1);
+            printf("- Carta 2 (%s): %d pontos\n", codigo2, pontosTuristicos2);
+            
+            // Lógica de comparação aninhada para pontos turísticos
+            if (pontosTuristicos1 > pontosTuristicos2) {
+                printf("Resultado: Carta 1 (%s) venceu!\n", nomeCidade1);
+            } else if (pontosTuristicos2 > pontosTuristicos1) {
+                printf("Resultado: Carta 2 (%s) venceu!\n", nomeCidade2);
+            } else {
+                printf("Resultado: Empate!\n");
+            }
+            break;
+            
+        case 5: // Densidade Demográfica (regra invertida: menor vence)
+            printf("Atributo escolhido: DENSIDADE DEMOGRÁFICA\n");
+            printf("- Carta 1 (%s): %.2f hab/km²\n", codigo1, densidade1);
+            printf("- Carta 2 (%s): %.2f hab/km²\n", codigo2, densidade2);
+            
+            // Lógica de comparação aninhada para densidade (menor vence)
+            if (densidade1 < densidade2) {
+                printf("Resultado: Carta 1 (%s) venceu! (menor densidade)\n", nomeCidade1);
+            } else if (densidade2 < densidade1) {
+                printf("Resultado: Carta 2 (%s) venceu! (menor densidade)\n", nomeCidade2);
+            } else {
+                printf("Resultado: Empate!\n");
+            }
+            break;
+            
+        default: // Opção inválida
+            printf("Erro: Opção inválida! Escolha um número entre 1 e 5.\n");
+            break;
     }
 
     printf("\n=== FIM DO PROGRAMA ===\n");
